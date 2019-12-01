@@ -46,3 +46,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'aws-sdk'
 gem 'rails-erd'
+gem 'slim-rails'
+gem 'bootstrap'
+gem 'mini_magick'
