@@ -37,8 +37,8 @@ class BoardsController < ApplicationController
 
     def self.all(client:, bucket:, board: board)
       o = new(client: client, bucket: bucket, prefix: board)
-      cards = o.contents.select { |c| %r[^#{board}/\d{8}-\d{2}/$] =~ c.key }
-      cards.map { |c| c.key }
+      cards = o.contents.select { |c| %r[^#{board}/\d{8}-\d{2}/card.txt$] =~ c.key }
+      cards.map { |c| c.key[%r[#{board}/\d{8}-\d{2}/]] }
     end
 
     def self.load(client:, bucket:, card_id: card_id)
