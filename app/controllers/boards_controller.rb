@@ -76,7 +76,9 @@ class BoardsController < ApplicationController
       keys = @contents.select { |c| %r[jpg$|JPG$] =~ c.key }.map {|i| i.key}
       keys.map do |key|
         io = _object(key: key)
-        {key: key, name: File.basename(key), data: ImageData.new(io: io)}
+        {key: key, name: File.basename(key),
+         s3_url: "https://s3-ap-northeast-1.amazonaws.com/#{@bucket}/#{key}",
+         data: ImageData.new(io: io)}
       end
     end
 
@@ -108,6 +110,13 @@ class BoardsController < ApplicationController
         mmi.resize width
         Base64.encode64(mmi.to_blob)
       end
+
+      def print(width:)
+        mmi= MiniMagick::Image.read(@io.read)
+        mmi.resize width
+        Base64.encode64(mmi.to_blob)
+      end
     end
   end
 end
+#https://s3-ap-northeast-1.amazonaws.com/foa-siteimages/information/orignal/20190531-01-01.jpg
