@@ -1,4 +1,13 @@
 div class="container"
+  .app-title.navbar.navbar-expand-md.navbar-light.lightseagreen
+    .navbar-brand
+      h6 style="color:lightseagreen" ページ
+    div class="collapse navbar-collapse"
+      ul class="navbar-nav"
+        - @pager[:pages].times do |page|
+          li class="nav-item#{' active' if page+1 == @pager[:now_page]}"
+            a class="nav-link#{' disabled' if page+1 == @pager[:now_page]}" href="?now_page=#{page+1}"
+              h6 style="#{'color:lightseagreen' unless page+1 == @pager[:now_page]}" #{page+1}
   /div class="row"
     div class="col-sm-12"
     h2 style="color:lightseagreen"
