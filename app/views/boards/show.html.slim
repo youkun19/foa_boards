@@ -1,5 +1,5 @@
 div class="container"
-  div class="row"
+  /div class="row"
     div class="col-sm-12"
     h2 style="color:lightseagreen"
       = @title
@@ -26,10 +26,10 @@ div class="container"
               div class="carousel-inner"
                 - card[:images].each_with_index do |image, i|
                   div class="carousel-item#{' active' if i == 0}"
-                    img [class="d-block w-100" atl="slide-0#{i}"
-                       src="#{image[:s3_url]}"]
                     /img [class="d-block w-100" atl="slide-0#{i}"
-                         src="data:image/jpg;base64, #{image[:data].print(width: 600)}"]
+                       src="#{image[:s3_url]}"]
+                    img [class="d-block w-100" atl="slide-0#{i}"
+                         src="data:image/jpg;base64, #{image[:data].print(width: 450)}"]
               - if card[:images].count > 1
                 ol class="carousel-indicators"
                   - card[:images].each_with_index do |image, i|
