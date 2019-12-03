@@ -32,12 +32,12 @@ div class="container"
         - if card[:images].present?
           div class="card-footer text-right"
             div id="controller-#{card[:date_number]}" class="carousel slide" data-ride="carousel" data-interval="5000"
-              div class="carousel-inner"
+              div class="carousel-inner" style="width:400px; margin:auto;"
                 - card[:images].each_with_index do |image, i|
                   div class="carousel-item#{' active' if i == 0}"
-                    /img [class="d-block w-100" atl="slide-0#{i}"
-                       src="#{image[:s3_url]}"]
                     img [class="d-block w-100" atl="slide-0#{i}"
+                       src="#{image[:s3_url]}"]
+                    /img [class="d-block w-100" atl="slide-0#{i}"
                          src="data:image/jpg;base64, #{image[:data].print(width: 450)}"]
               - if card[:images].count > 1
                 ol class="carousel-indicators"
