@@ -25,9 +25,9 @@ class BoardsController < ApplicationController
     end
 
     @pager = {
-      contents_per_page: 5,
+      contents_per_page: 10,
       now_page: params[:now_page]&.to_i || 1,
-      pages: (@cards.count / 5.0).ceil
+      pages: (@cards.count / 10.0).ceil
     }
 
     @cards = @cards[(@pager[:contents_per_page]*(@pager[:now_page]-1))...(@pager[:contents_per_page]*@pager[:now_page])]
