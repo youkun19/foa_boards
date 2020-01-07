@@ -22,7 +22,7 @@ div class="container"
             = '掲載日：' + card[:date].strftime('%Y/%m/%d')
           p class="card-text"
             - card[:card_txt]['Message']&.each do |line|
-              = line
+              = line.html_safe
               br
             br
             - card[:attachments]&.each do |attachment|
