@@ -5,7 +5,7 @@ class KakuninBoardsController < ApplicationController
     region = 'ap-northeast-1'
     client = Aws::S3::Client.new(region: region)
 
-    bucket = 'foa-siteimages'
+    bucket = 'foa-v2-siteimages'
     @bucket_url = "https://#{bucket}.s3-ap-northeast-1.amazonaws.com"
     board = params[:id]
     @title = {
